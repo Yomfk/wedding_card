@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Свадебное поздравление</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url(https://avatars.mds.yandex.net/i?id=2170f079f8f192308be08aed2f85f0da_l-8133404-images-thumbs&n=13) no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .clan-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .names-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+      justify-items: center;
+    }
+
+    .name-button {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      text-align: center;
+    }
+
+    .name-button:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .message {
+      margin-top: 10px;
+      display: none;
+      font-size: 16px;
+      color: #fff;
+      background: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .audio-player {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    button {
+      margin-top: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ffd700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffcc00;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 30px 10px;
+      }
+
+      .names-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="card">
+    <img src="photo_2023-04-01_10-24-37.jpg" alt="Клан Лого" class="clan-logo">
+
+    <h1>Поздравляем с Свадьбой!</h1>
+    <h2>Руслана и Екатерину</h2>
+    <p>Пусть ваш союз будет крепким, как наша гильдия,</p>
+    <p>Пусть любовь будет верной, как верность клану,</p>
+    <p>А счастье — бесконечным, как наши рейды!</p>
+
+    <div class="names-grid">
+      <!-- Один блок = один поздравляющий -->
+      <div>
+        <div class="name-button" onclick="toggleMessage('msg1', 'audio1')">TANb4A</div>
+        <div class="message" id="msg1">
+          Руслан с днем свадьбы поздравляю,
+Жить до старости желаю.
+Вместе вам седеть, лысеть,
+В магазин ходить, кряхтеть.
+В общем, счастливо живите
+И друг друга вы любите!  про Л2 не забывай)))
+          <div class="audio-player">
+            <audio id="audio1" src="https://music.yandex.ru/track/140849836?utm_source=web&utm_medium=copy_link"></audio>
+            <button onclick="playAudio('audio1')">▶️ Play</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="name-button" onclick="toggleMessage('msg2', 'audio2')">ВИЗАРД</div>
+        <div class="message" id="msg2">
+          Счастья, здоровья и главное взаимопонимания ;)
+          <div class="audio-player">
+            <audio id="audio2" src="audio/healerx.mp3"></audio>
+            <button onclick="playAudio('audio2')">▶️ Play</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="name-button" onclick="toggleMessage('msg4', 'audio4')">VoiceMage</div>
+        <div class="message" id="msg4">
+          "Ваш союз — как идеальный билд: сила, поддержка и магия рядом навсегда!"
+          <div class="audio-player">
+            <audio id="audio4" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+            <button onclick="toggleAudio('audio4', this)">▶️ Play</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Добавь остальных участников аналогично -->
+    </div>
+  </div>
+
+  <script>
+    let currentAudio = null;
+  
+    function toggleMessage(msgId, audioId) {
+      const msg = document.getElementById(msgId);
+      const audio = document.getElementById(audioId);
+  
+      // Скрыть все сообщения и остановить аудио
+      document.querySelectorAll('.message').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('audio').forEach(a => {
+        a.pause();
+        a.currentTime = 0;
+      });
+  
+      // Показать текущее сообщение
+      msg.style.display = 'block';
+  
+      // Автоматически воспроизвести аудио
+      if (audio) {
+        audio.play();
+        currentAudio = audio;
+      }
+    }
+  
+    function toggleAudio(audioId, btn) {
+      const audio = document.getElementById(audioId);
+  
+      if (audio.paused) {
+        if (currentAudio && currentAudio !== audio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+        audio.play();
+        btn.textContent = "⏸ Pause";
+        currentAudio = audio;
+      } else {
+        audio.pause();
+        btn.textContent = "▶️ Play";
+      }
+  
+      audio.onended = () => {
+        btn.textContent = "▶️ Play";
+      };
+    }
+  </script>
+</body>
+</html>
