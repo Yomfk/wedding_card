@@ -1,222 +1,173 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Свадебное поздравление</title>
-  <style>
+<meta charset="UTF-8">
+<title>Поздравительная открытка</title>
+<style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url(https://avatars.mds.yandex.net/i?id=2170f079f8f192308be08aed2f85f0da_l-8133404-images-thumbs&n=13) no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        background: url('image_2025-08-11_22-12-11.png') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        padding: 20px;
+        text-align: center;
     }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
+    .common {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 900px;
+        margin: 0 auto 30px auto;
     }
-
-    .card {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: 50px auto;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    .common h1 {
+        margin-bottom: 10px;
     }
-
-    .clan-logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 20px;
+    .common h2 {
+        color: gold;
+        margin-top: 0;
     }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        max-width: 900px;
+        margin: 0 auto;
     }
-
-    h2 {
-      font-size: 24px;
-      color: #ffd700;
-      margin-bottom: 30px;
+    .nick {
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        padding: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
     }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 15px;
+    .nick:hover {
+        background: rgba(255, 255, 255, 0.2);
     }
-
-    .names-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-      margin-top: 40px;
-      justify-items: center;
+    .content {
+        display: none;
+        grid-column: 1 / -1;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: left;
     }
-
-    .name-button {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 10px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-      width: 100%;
-      text-align: center;
+    audio {
+        margin-top: 10px;
     }
-
-    .name-button:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .message {
-      margin-top: 10px;
-      display: none;
-      font-size: 16px;
-      color: #fff;
-      background: rgba(0,0,0,0.4);
-      padding: 10px;
-      border-radius: 10px;
-      text-align: left;
-    }
-
-    .audio-player {
-      margin-top: 10px;
-      text-align: left;
-    }
-
-    button {
-      margin-top: 5px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #ffd700;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #ffcc00;
-    }
-
-    @media (max-width: 600px) {
-      .card {
-        padding: 30px 10px;
-      }
-
-      .names-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <div class="overlay"></div>
-  <div class="card">
-    <img src="photo_2023-04-01_10-24-37.jpg" alt="Клан Лого" class="clan-logo">
+<audio src="Hunters.mp3" autoplay loop></audio>
 
-    <h1>Поздравляем с Свадьбой!</h1>
+<div class="common">
+    <h1>Поздравляем со Свадьбой!</h1>
     <h2>Руслана и Екатерину</h2>
-    <p>Пусть ваш союз будет крепким, как наша гильдия,</p>
-    <p>Пусть любовь будет верной, как верность клану,</p>
-    <p>А счастье — бесконечным, как наши рейды!</p>
+    <p>
+      Пусть ваш союз будет крепким, как наш группа,<br>
+      Пусть любовь будет верной, как верность клану,<br>
+      А счастье — бесконечным, как наши рейды!</p>
+</div>
 
-    <div class="names-grid">
-      <!-- Один блок = один поздравляющий -->
-      <div>
-        <div class="name-button" onclick="toggleMessage('msg1', 'audio1')">TANb4A</div>
-        <div class="message" id="msg1">
-          Руслан с днем свадьбы поздравляю,
-Жить до старости желаю.
-Вместе вам седеть, лысеть,
-В магазин ходить, кряхтеть.
-В общем, счастливо живите
-И друг друга вы любите!  про Л2 не забывай)))
-          <div class="audio-player">
-            <audio id="audio1" src="https://music.yandex.ru/track/140849836?utm_source=web&utm_medium=copy_link"></audio>
-            <button onclick="playAudio('audio1')">▶️ Play</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="name-button" onclick="toggleMessage('msg2', 'audio2')">ВИЗАРД</div>
-        <div class="message" id="msg2">
-          Счастья, здоровья и главное взаимопонимания ;)
-          <div class="audio-player">
-            <audio id="audio2" src="audio/healerx.mp3"></audio>
-            <button onclick="playAudio('audio2')">▶️ Play</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="name-button" onclick="toggleMessage('msg4', 'audio4')">VoiceMage</div>
-        <div class="message" id="msg4">
-          "Ваш союз — как идеальный билд: сила, поддержка и магия рядом навсегда!"
-          <div class="audio-player">
-            <audio id="audio4" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-            <button onclick="toggleAudio('audio4', this)">▶️ Play</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Добавь остальных участников аналогично -->
+<div class="grid">
+    <div class="nick">ЛетоКакОсень</div>
+    <div class="content">
+        Поздравляю со знаменательным событием! Пусть ваш союз будет крепким, а чувства — нежными и вечными. &lt;3
     </div>
-  </div>
 
-  <script>
-    let currentAudio = null;
-  
-    function toggleMessage(msgId, audioId) {
-      const msg = document.getElementById(msgId);
-      const audio = document.getElementById(audioId);
-  
-      // Скрыть все сообщения и остановить аудио
-      document.querySelectorAll('.message').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('audio').forEach(a => {
-        a.pause();
-        a.currentTime = 0;
-      });
-  
-      // Показать текущее сообщение
-      msg.style.display = 'block';
-  
-      // Автоматически воспроизвести аудио
-      if (audio) {
-        audio.play();
-        currentAudio = audio;
-      }
-    }
-  
-    function toggleAudio(audioId, btn) {
-      const audio = document.getElementById(audioId);
-  
-      if (audio.paused) {
-        if (currentAudio && currentAudio !== audio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0;
+    <div class="nick">Айрейн</div>
+    <div class="content">
+        Рус, братишка, поздравляю Вас с Екатериной с этим замечательным событием.<br><br>
+        Теперь Вы официально, так сказать - новая ячейка общества, новая семья, пусть ваша любовь будет такой же крепкой как швы на твоих стойках для столов.<br><br>
+        Желаю что бы в вашем доме царило - тепло, уют, что бы ваш малыш родился здоровым, красивым, будь хорошим мужем, будь хорошим отцом для своих любимых!<br><br>
+        Счастья вам, гармонии и финансового благополучия!
+        <audio controls src="айрейн.ogg"></audio>
+    </div>
+
+    <div class="nick">Кусачка</div>
+    <div class="content">
+        Руслан и Екатерина , от всей души поздравляю вас! Желаю вам долголетия и семейного счастья. Берегите свою любовь и дарите ее своим детям 😊 . Любви и счастья 👋
+    </div>
+
+    <div class="nick">Визард</div>
+    <div class="content">
+        Счастья, здоровья и главное взаимопонимания ;)
+        <audio controls src="Визард.ogg"></audio>
+    </div>
+
+    <div class="nick">TANb4A</div>
+    <div class="content">
+        Руслан с днем свадьбы поздравляю,<br><br>
+        Жить до старости желаю.<br>
+        Вместе вам седеть, лысеть,<br>
+        В магазин ходить, кряхтеть.<br>
+        В общем, счастливо живите<br>
+        И друг друга вы любите!  про Л2 не забывай))
+        <audio controls src="TANb4A.ogg"></audio>
+    </div>
+
+    <div class="nick">Mrs.Darkness</div>
+    <div class="content">
+        Теплоты и уюта
+        <audio controls src="Mrs.Darkness.ogg"></audio>
+    </div>
+
+    <div class="nick">Кулик</div>
+    <div class="content">
+        Поздравляю с созданием новой семьи ☺️ И хочу пожелать:<br><br>
+        Если не будет хватать чего-то, быть спойлом💍🎰💰<br>
+        Если обидели семью, быть дестром😡<br>
+        Если вдруг не будет настроения, быть магом🌾✨🌹🔮<br>
+        Если будет больно, бишом🦠💊⛑<br>
+        На постоянку в семье танком🪖<br>
+        И обязательно другом 😊<br><br>
+        Счастья вам🥳<br><br>
+        P.s. Ещё говорят надо быть читером для полного счастья (надеюсь не забанят)😄
+        <audio controls src="Кулик.ogg"></audio>
+    </div>
+
+    <div class="nick">AgressorPWNZ</div>
+    <div class="content">
+        Уважаемые Руслан и Катенька! Поздравляю вас с самым значимым днём в вашей жизни! Сегодня начинается новый этап в вашей жизни, теперь уже совместной! Любите друг друга, цените, ведь ваша половинка это самое дорогое что у вас есть, оберегайте и поддерживайте друг друга что бы не случилось! Совет вам да любовь!
+        <audio controls src="Agressor.ogg"></audio>
+    </div>
+
+    <div class="nick">Шота и Оксана</div>
+    <div class="content">
+        Желаю вам поддерживать друг друга, не терять нежности и искренности чувств. Пусть ваши сердца бьются в унисон, а душевное тепло согревает в любые времена. Долгих и счастливых лет в гармонии и взаимопонимании!
+    </div>
+
+    <div class="nick">Steev</div>
+    <div class="content">
+        Дорогие Руслан и Екатерина!<br><br>
+        Сегодня вы начинаете свой самый важный КМ — эпик под названием «Семья».<br>
+        Пусть ваша совместная игра будет полна только радостных событий,<br>
+        дроп — всегда эпическим,<br>
+        баффы — только положительными,<br>
+        а PvP — лишь в шутку и для смеха.<br><br>
+        Руслан, береги своего прекрасного хила - Екатерину.<br>
+        Екатерина, пусть твой хил всегда спасает Руслана в любых жизненных данжах.<br><br>
+        Желаю вам, чтобы в вашей консте всегда царили любовь, взаимопонимание и удача,<br>
+        а все жизненные боссы падали с первой попытки.<br><br>
+        Счастья вам, крепкого союза и нескончаемого запаса маны для любви! ❤️
+        <audio controls src="Steev.ogg"></audio>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.nick').forEach(nick => {
+    nick.addEventListener('click', () => {
+        const content = nick.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+            content.style.display = 'block';
         }
-        audio.play();
-        btn.textContent = "⏸ Pause";
-        currentAudio = audio;
-      } else {
-        audio.pause();
-        btn.textContent = "▶️ Play";
-      }
-  
-      audio.onended = () => {
-        btn.textContent = "▶️ Play";
-      };
-    }
-  </script>
+    });
+});
+</script>
+
 </body>
 </html>
